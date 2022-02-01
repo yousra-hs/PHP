@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="solicode"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-01-29 12:51:54 "/>
+        <attribute name="created" value="c29saWNvZGU7REVTS1RPUC1UQkpOVjRTOzIwMjItMDEtMjg7IjA5OjI3OjQ3ICI7MzE1Nw=="/>
+        <attribute name="edited" value="c29saWNvZGU7REVTS1RPUC1UQkpOVjRTOzIwMjItMDEtMjg7IjAzOjM0OjU3ICI7NDszMjYx"/>
+        <attribute name="edited" value="c29saWNvZGU7REVTS1RPUC1EVjU2QTNMOzIwMjItMDEtMjg7MDg6MDQ6MTMgQU07MjszMjU3"/>
+        <attribute name="edited" value="aHA7REVTS1RPUC1HMkVFUEtHOzIwMjItMDEtMjk7IjEyOjUxOjU0ICI7MTsyNTgz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="Ancien" type="Integer" array="False" size=""/>
+            <declare name="Nouvel" type="Integer" array="False" size=""/>
+            <declare name="Consommation" type="Real" array="False" size=""/>
+            <input variable="Ancien"/>
+            <input variable="Nouvel"/>
+            <assign variable="Consommation" expression="Nouvel- Ancien"/>
+            <declare name="HT" type="Real" array="False" size=""/>
+            <if expression="Consommation&lt;=100">
+                <then>
+                    <assign variable="HT" expression="Consommation*0.794"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="101&lt;=Consommation &amp;&amp; Consommation&lt;=150">
+                <then>
+                    <assign variable="HT" expression="(100*0.794)+(Consommation-100)*0.883"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="151&lt;=Consommation &amp;&amp; Consommation&lt;=210">
+                <then>
+                    <assign variable="HT" expression="Consommation*0.9451"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="211&lt;=Consommation &amp;&amp; Consommation&lt;=310">
+                <then>
+                    <assign variable="HT" expression="Consommation*1.0489"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="311&lt;=Consommation &amp;&amp; Consommation&lt;=510">
+                <then>
+                    <assign variable="HT" expression="Consommation*1.4975"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="Consommation&gt;511">
+                <then>
+                    <assign variable="HT" expression="Consommation*1.2915"/>
+                </then>
+                <else/>
+            </if>
+            <output expression="Consommation" newline="True"/>
+            <output expression="HT" newline="True"/>
+            <declare name="TVA" type="Real" array="False" size=""/>
+            <assign variable="TVA" expression="14/100"/>
+            <declare name="Taxes" type="Real" array="False" size=""/>
+            <assign variable="Taxes" expression="HT*TVA"/>
+            <output expression="Taxes" newline="True"/>
+            <declare name="select" type="Real" array="False" size=""/>
+            <assign variable="select" expression="&quot;Entrer Le Calibre&quot;"/>
+            <output expression="select" newline="True"/>
+            <declare name="Calibre" type="Real" array="False" size=""/>
+            <if expression="select == 5-10">
+                <then>
+                    <assign variable="Calibre" expression="22.65"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="select == 15-20">
+                <then>
+                    <assign variable="Calibre" expression="37.05"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="select == 30">
+                <then>
+                    <assign variable="Calibre" expression="46.20"/>
+                </then>
+                <else/>
+            </if>
+            <output expression="Calibre" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
